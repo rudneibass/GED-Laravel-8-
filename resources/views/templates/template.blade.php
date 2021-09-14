@@ -19,13 +19,14 @@
 
 
     <x-header></x-header>
-    
-     <div class="container-fluid">
+
+    <div class="container-fluid">
         <div class="row full-screen">
             <div class="col-md-2" style="padding: 0; background-color: #414956;">
                 <x-menu></x-menu>
             </div>
             <div class="col-md-10 border">
+                <x-barmain></x-barmain>
                 @yield('content')
             </div>
         </div>

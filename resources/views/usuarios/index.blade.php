@@ -1,15 +1,15 @@
 @extends('templates.template')
 
 @section('content')
-<div class="row bar-main">
+<!-- <div class="row bar-main">
     <div class="col-md-12">
         <span><i class="fa fa-users"></i> Usuários </span>
         <a href="{{ url('usuarios/create') }}" class="btn btn-sm  btn-success float-end"><i class="fa fa-plus"></i> Cadastrar</a>
     </div>
-</div>
-
+</div> -->
 
 <div class="row">
+    
     <div class="col-md-12">
         <div class="card">
             <div class="card-header"><span class="text-muted">Pesquisa Por...</span></div>
@@ -95,8 +95,8 @@
             <tbody id="tbody">
 
                 @foreach($todosUsuarios as $usuario)
-                <tr  id="{{ $usuario->id }}">
-                    <td class="td-id" >{{ $usuario->id }}</td>
+                <tr id="{{ $usuario->id }}">
+                    <td class="td-id">{{ $usuario->id }}</td>
                     <td>{{ $usuario->nome }}</td>
                     <td>{{ $usuario->email }}</td>
                     <td class="td-action-edit"> <a href="{{ url('usuarios') }}/{{ $usuario->id }}/edit" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a> </td>

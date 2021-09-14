@@ -24,7 +24,7 @@ class UsuariosController extends Controller
             ['id', '>', '0'],
             ['nome', 'LIKE', '%' . $request->nome . '%'],
             ['login', 'LIKE', '%' . $request->login . '%'],
-            ['email', 'LIKE', '%' . $request->email . '%'],
+            ['email', 'LIKE', '%' . $request->email . '%']
         ])->paginate(6);
 
         return view('usuarios.index', ['todosUsuarios' => $todosUsuarios]);
@@ -38,9 +38,9 @@ class UsuariosController extends Controller
     public function store(UsuariosRequest $request)
     {
         try {
-            
+
             $hash = Hash::make($request->senha);
-           
+
             $store = UsuariosModel::create([
                 'nome' => $request->nome,
                 'login' => $request->login,
@@ -50,7 +50,7 @@ class UsuariosController extends Controller
                 'ativo' => $request->ativo,
             ]);
             if ($store) {
-                return redirect('/usuarios');
+                return view('usuarios.create', ['messageSuccess'=> 'Cadastro realizado com sucesso!']);
             }
         } catch (Exception $e) {
             return view('usuarios.create', ['dbException' => $e->getMessage()]);
@@ -61,7 +61,7 @@ class UsuariosController extends Controller
 
     public function edit($id)
     {
-        $usuario = UsuariosModel::find($id);
+        $usuario = UsuariosModel::findOrFail($id);
         return view('usuarios.edit', ['usuario' => $usuario]);
     }
 
@@ -82,7 +82,7 @@ class UsuariosController extends Controller
             echo  $e->getMessage();
         }
 
-        return redirect('/usuarios');
+        return view('usuarios.create', ['messageSuccess'=> 'Cadastro atualizado com sucesso!']);
     }
 
 

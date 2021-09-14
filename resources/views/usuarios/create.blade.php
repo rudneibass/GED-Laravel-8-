@@ -2,14 +2,6 @@
 
 @section('content')
 
-<div class="row bar-main">
-    <div class="col-md-12">
-        <span><i class="fa fa-users"></i> Usuários </span>
-        <a href="{{ url('usuarios/create') }}" class="btn btn-sm  btn-success float-end"><i class="fa fa-plus"></i> Cadastrar</a>
-    </div>
-</div>
-
-
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -26,9 +18,9 @@
     <div class="tab-pane container active" id="home" style="padding-top: 20px; padding-bottom: 1rem;">
 
         @if ($errors->any())
-
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <center><strong>Atenção!</strong></center><hr/>
+            <center><strong>Atenção!</strong></center>
+            <hr />
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -46,6 +38,13 @@
             <ul>
                 <li>{{ $dbException }}</li>
             </ul>
+        </div>
+        @endif
+
+        @if(isset($messageSuccess))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ $messageSuccess }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
 
