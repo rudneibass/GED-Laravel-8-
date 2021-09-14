@@ -1,0 +1,10 @@
+.table-main {
+    width: 100%;
+}
+
+.table-main tbody tr .td-id,
+.table-main tbody tr .td-action-edit,
+.table-main tbody tr .td-action-destory {
+    width: 5%;
+    text-align: center;
+}

@@ -1,0 +1,11 @@
+.bar-main {
+    border: 1px solid #dee2e6;
+    background-color: #f4faf4;
+    padding: 15px 0px 10px 5px;
+    margin-bottom: 20px;
+}
+
+.bar-main div span {
+    font-size: 25px;
+    color: gray
+}
